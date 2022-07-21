@@ -31,6 +31,12 @@ print("Window ended.")
 - for windows `python -m pip install windows-curses`
 - initializing new screen using `initscr()`. A black screen will be rendered.
 - `screen.refresh()` is used to display the text/information because the text is not rendered instantly. This is because curses was originally written with slow 300-baud terminal connections in mind; with these terminals, minimizing the time required to redraw the screen was very important. **without this the black screen will not be shown to user.**
-- napms() will render the screen only for the specified time.
+- napms(miliseconds) --> Sleep for ms milliseconds..
 - endwin() terminate the screen.
 - **all the print statement will be printed on base terminal not on screen.**
+
+## References:
+
+- [Python official Docs](https://docs.python.org/3/howto/curses.html)
+- [devdungeon.com](https://www.devdungeon.com/content/curses-programming-python#toc-1)
+- [tldp.org](https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/intro.html)
