@@ -62,3 +62,6 @@ author
 - git add .
 - no new object created, git will not create new blob objects for it. It’ll use the previous blob object to track it.
   > This means that git only tracks the data in the file along with the file name… instead of directly tracking the files.
+
+### References:
+- [Git from inside out](https://ayedaemon.github.io/post/2021/02/git-form-inside-out/)
