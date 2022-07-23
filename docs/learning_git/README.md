@@ -1,7 +1,10 @@
 # Git Objects
 
-`git init`
-`tree .git/`
+```
+git init
+tree .git/
+```
+
 ![initialize git repo](git_structure.PNG)
 
 Git is a content-addressable filesystem. Great. What does that mean? It means that at the core of Git is a simple key-value data store. What this means is that you can insert any kind of content into a Git repository, for which Git will hand you back a unique key you can use later to retrieve that content.
@@ -49,3 +52,13 @@ author
 - second object have all the details that is newly created tree key, author, committer, and commit message
 
 ![new commit](git_commit.PNG)
+
+### Note
+
+- echo 'high-five' > file2.txt
+- git add .
+- new object created
+- echo 'high-five' > file3.txt
+- git add .
+- no new object created, git will not create new blob objects for it. It’ll use the previous blob object to track it.
+  > This means that git only tracks the data in the file along with the file name… instead of directly tracking the files.
