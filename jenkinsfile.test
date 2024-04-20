@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/navsin189/ncurses.git'
+            }
+        }
+        stage('SonarQube Test'){
+            steps {
+                sh 'sonar-scanner -Dsonar.projectKey=python-test-from-jenkins  -Dsonar.sources=. -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=<token>'
+            }
+        }
+    }
+}

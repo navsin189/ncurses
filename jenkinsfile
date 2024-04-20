@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    environment {
+        SONARQUBE_SCANNER_HOME = "${tool 'scanner'}/bin" 
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/navsin189/ncurses'
+            }
+        }
+        
+        stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube Server') {
+                    sh "${SONARQUBE_SCANNER_HOME}/sonar-scanner -Dsonar.projectKey=pipeline"
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo 'End of pipeline'
+        }
+    }
+    
+}
